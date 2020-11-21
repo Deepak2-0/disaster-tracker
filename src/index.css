@@ -28,9 +28,46 @@ body {
   position: relative;
 }
 
-.location-icon {
-  font-size: 2rem;
+.location-icon-wildfire {
+  font-size: 1.5rem;
   color: red;
+  cursor: pointer;
+}
+
+.location-icon-volcano {
+  font-size: 2rem;
+  color: orange;
+  cursor: pointer;
+}
+.location-icon-snow {
+  font-size: 2rem;
+  /* color: whitesmoke; */
+  color: darkgrey;
+  cursor: pointer;
+}
+.location-icon-storm {
+  font-size: 2rem;
+  color: #5e899e;
+  cursor: pointer;
+}
+
+.location-icon-ice {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.location-icon-flood {
+  font-size: 2rem;
+  color: blue;
+  cursor: pointer;
+}
+.location-icon-earthquake {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.location-icon-drought {
+  font-size: 2rem;
+  color: rgb(163, 115, 51);
+  cursor: pointer;
 }
 
 .loader {
@@ -69,4 +106,13 @@ body {
 
 .location-info li {
   padding: 5px 0;
+}
+.location-info button {
+  text-align: center;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.location-info button :hover {
+  opacity: 1;
 }

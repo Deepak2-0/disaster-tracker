@@ -10,26 +10,40 @@ const Map = ({eventData,center, zoom}) => {
 
     const [locationInfo, setLocationInfo] = useState(null);
 
+    let [lat, lng] = [null, null];
+
     const markers = eventData.map((event,index)=>{
-        //console.log(event);
-        if(event.categories[0].id === 8){
 
-            return(
-
-                <LocationMarker
-                    lat={event.geometries[0].coordinates[1]}
-                    lng={event.geometries[0].coordinates[0]} 
-                    key={index}
-                    onClick={()=> setLocationInfo({id:event.id, title:event.title})}
-                />
-
-                //console.log(event.geometries[0]);
-
-            );
+        if(Array.isArray(event.geometries[0].coordinates[0])){
+            let temp = event.geometries[0].coordinates[0];
+            lat = temp[0][1];
+            lng = temp[0][0];
+            // lat = event.geometries[0].coordinates[0][1];
+            // lng = event.geometries[0].coordinates[0][0];
         }
-        return null;
+        else{
+            lat = event.geometries[0].coordinates[1];
+            lng = event.geometries[0].coordinates[0];
+        }
 
-    });
+        return(
+
+            <LocationMarker
+                id={event.categories[0].id}
+                // lat={event.geometries[0].coordinates[1]}
+                // lng={event.geometries[0].coordinates[0]} 
+                lat={lat}
+                lng={lng}
+                key={index}
+                onClick={()=> setLocationInfo({id:event.id, title:event.title})}
+            />
+
+            //console.log(event.geometries[0]);
+    
+        );
+        });
+
+    
 
     return (
         <div className="map">
@@ -43,6 +57,7 @@ const Map = ({eventData,center, zoom}) => {
             {locationInfo && 
                 <LocationInfoBox 
                     info={locationInfo}
+                    onClick = {()=> setLocationInfo(null)}
                 />}
         </div>
     )
@@ -57,7 +72,7 @@ Map.defaultProps = {
         lat:39.5501, //for colorado
         lng:-105.7821
     },
-     zoom: 4  //1 means the non zoom as 20(general) max zoom 
+     zoom: 2  //1 means the non zoom as 20(general) max zoom 
 }
 
 export default Map;
