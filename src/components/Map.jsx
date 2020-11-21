@@ -35,13 +35,12 @@ const Map = ({eventData,center, zoom}) => {
                 lat={lat}
                 lng={lng}
                 key={index}
-                onClick={()=> setLocationInfo({id:event.id, title:event.title})}
+                onClick={()=> setLocationInfo({id:event.id, type:event.categories[0].title,title:event.title})}
             />
 
             //console.log(event.geometries[0]);
-    
         );
-        });
+    });
 
     
 
