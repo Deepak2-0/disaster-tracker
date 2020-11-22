@@ -99,6 +99,22 @@ body {
   color: #fff;
 }
 
+@media screen and (max-width: 540px) {
+  .location-info {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    /* width: 400px; */
+    max-width: 90%;
+    min-height: 150px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    font-size: 18px;
+    color: #fff;
+  }
+}
+
 .location-info ul {
   list-style-type: none;
   padding: 0;

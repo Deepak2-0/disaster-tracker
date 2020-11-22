@@ -56,10 +56,8 @@ const LocationMarker = ({ id,lat, lng, onClick }) => {
                             <Icon icon={droughtIcon} className="location-icon-drought" />
                         )
                         
-                    {/* default:
-                        return (
-                        <div>You are a User.</div>
-                        ) */}
+                    default:
+                        return;
                 }
 
             })()}
